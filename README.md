@@ -1,1 +1,3 @@
-"# python" 
+# python
+
+learning me some python
