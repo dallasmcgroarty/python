@@ -219,3 +219,15 @@ def capitalize(string):
     return string[:1].upper() + string[1:]
     # or
     # return word.replace(word[0], word[0].upper())
+
+# given list and a func, return a list of true and false values in
+# another list
+def partition(A, func=None):
+    truthy = []
+    falsy = []
+    for x in A:
+        if(func(x)):
+            truthy.append(x)
+        else:
+            falsy.append(x)
+    return [truthy, falsy]
