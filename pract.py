@@ -231,3 +231,23 @@ def partition(A, func=None):
         else:
             falsy.append(x)
     return [truthy, falsy]
+    
+'''
+given a 6x6 matrix of integers
+and hourglass is defined as 
+a b c 
+  d
+e f g
+calculate the total of every value in each hourglass in the matrix
+return the max hourglass sum
+'''
+def hourglassSum(arr):
+    max_result = -sys.maxsize - 1
+    total = 0
+
+    for i in range(0, 4):
+        for j in range(0, 4):
+            total = arr[i][j] + arr[i][j+1] + arr[i][j+2] + arr[i+1][j+1] + arr[i+2][j] + arr[i+2][j+1] + arr[i+2][j+2]
+            if(total > max_result):
+                max_result = total
+    return max_result
