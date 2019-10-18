@@ -251,3 +251,21 @@ def hourglassSum(arr):
             if(total > max_result):
                 max_result = total
     return max_result
+
+# min swaps in an unordered consecutive array
+# when ordered => 1,2,3,4,5 each numbers is 
+# its own index if index starts at 1 not 0
+def minimumSwaps(arr):
+    numSwaps = 0
+    i = 0
+    while(i < len(arr)-1):
+        if arr[i] != i+1:
+            tmp = arr[i]
+            arr[i], arr[tmp-1] = arr[tmp-1], arr[i]
+            numSwaps += 1
+        else:
+            i += 1
+    return numSwaps
+
+print(minimumSwaps([2,3,4,1,5]))
+
