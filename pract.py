@@ -269,3 +269,13 @@ def minimumSwaps(arr):
 
 print(minimumSwaps([2,3,4,1,5]))
 
+# given an array a and number d, rotate the array to the left d times
+# input: a = [1,2,3,4,5] d = 3
+# return: a = [4,5,1,2,3] 
+def rotLeft(a, d):
+    for _ in range (0,d): # using _ because we dont keep track of/store the iteration
+        popped = a.pop(0)
+        a.append(popped)
+    return a
+
+print('rotate array left ==> ', rotLeft([1,2,3,4,5], 3))
