@@ -279,3 +279,19 @@ def rotLeft(a, d):
     return a
 
 print('rotate array left ==> ', rotLeft([1,2,3,4,5], 3))
+
+A = [1,1,1,1,1,1,2,2,2,2,2]
+
+def solution(A):
+    n = len(A)
+    L = [-1] + A
+    count = 0
+    pos = (n + 2) // 2
+    candidate = L[pos]
+    for i in range(1, n + 1):
+        if (L[i] == candidate):
+            count = count + 1
+        if (count >= pos):
+            return candidate
+    return -1
+print(solution(A))
