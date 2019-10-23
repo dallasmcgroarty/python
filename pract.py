@@ -3,9 +3,9 @@ import sys
 def reverse(str):
     reversed = ''
     for i in range(len(str),0, -1): # or use reversed function i.e. for i in reversed(str):
-        reversed += str[i - 1]
+        reversed += str[i-1]
     return reversed
-    
+print('reversed string', reverse('string'))
 def temperature(temp):
     if temp <= 30:
         return 'colder'
@@ -294,4 +294,46 @@ def solution(A):
         if (count >= pos):
             return candidate
     return -1
-print(solution(A))
+print('Element in more than half of array ==> ', solution(A))
+
+# return number of unique pairs
+# given a list of numbers
+ar = [10, 20, 20, 10, 10, 30, 50, 10, 20]
+
+def numPairs(ar):
+    pairs = 0
+    seen = set()
+    for i in range(0, len(ar)):
+        if ar[i] in seen:
+            continue
+        numCopies = ar.count(ar[i])
+        seen.add(ar[i])
+        if numCopies % 2 == 0 and numCopies >= 2:
+            pairs += numCopies // 2
+        elif numCopies % 2 == 1 and numCopies > 2:
+            pairs += (numCopies - 1) // 2
+    print (seen)
+    return pairs
+print('number of unique pairs ==> ', numPairs(ar))
+
+# given a number of steps n and string of U's(up) and D's(down)
+# return the number of valleys the path has
+# valley is defined as going down from sea-level and back up to sea-level
+# input: 4, DUDU
+# visual: \/\/
+# output: 2
+#
+def countingValleys(n, s):
+    down = 0
+    up = 0
+    valleys = 0
+    for step in range(0 , n):
+        if s[step] == 'U' and up == down - 1:
+            valleys += 1
+            up = 0
+            down = 0
+        elif s[step] == 'D':
+            down += 1
+        elif s[step] == 'U':
+            up += 1
+    return valleys
