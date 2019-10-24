@@ -80,11 +80,11 @@ print('first missing positive integer --> ', firstMissingPositive([1,2,3,4,5,7,8
 
 # return duplicate in list/array in O(N) time
 def repeatedNumber(A):
-         out = {}
+         out = set()
          for x in A:
              if x in out:
                  return x
-             out[x] = x
+             out.add(x)
          print(out)
          return -1
         # or do it this way
@@ -110,12 +110,13 @@ def plusOne(A):
     num_str = ''.join(str(val) for val in A)
     add_one = int(num_str) + 1
     add_one = str(add_one)
-    ret_list = []
-    for char in add_one:
-        ret_list.append(int(char))
-    #return list(add_one)
-    return ret_list
-print('add one to list of numbers --> ', plusOne([1,3,4,5,6]))
+    # ret_list = []
+    # for char in add_one:
+    #     ret_list.append(int(char))
+    # #return list(add_one)
+    # return ret_list
+    return [int(char) for char in add_one]
+print('add one to list of numbers --> ', plusOne([1,3,4,5,9]))
 
 # return input list as a wave like list, where a1 >= a2 <= a3 >= a4 <= a5
 def wave(A):
@@ -337,3 +338,33 @@ def countingValleys(n, s):
         elif s[step] == 'U':
             up += 1
     return valleys
+
+# return number of alternating characters/ deletions
+def alternatingCharacters(s):
+    count = 0
+    for i in range(0, len(s) - 1):
+        if s[i] == s[i+1]:
+            count += 1
+    return count
+
+# function that returns true or false based off if the string is valid
+# all char in string must have the same frequency, if one char frequency
+# is off by 1 then you can remove it and the string is valid
+# but, you can only remove 1 character at 1 index
+def isValid(s):
+    repeat = set()
+    # freq = {char: s.count(char) for char in s}
+    common = s.count(s[0])
+    count = 0
+    for x in range(0, len(s)):
+        test = s.count(s[x])
+        if s[x] in repeat:
+            continue
+        else:
+            if test > common or test < common:
+                count += 1
+            repeat.add(s[x])
+    if count > 1:
+        return 'NO'
+    else:
+        return 'YES'
