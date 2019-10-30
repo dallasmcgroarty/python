@@ -368,3 +368,36 @@ def isValid(s):
         return 'NO'
     else:
         return 'YES'
+
+# give a length of array n, and a list of queries with 3 elements a,b,k
+# where a = start, b = end, k = sumand
+# add each summand to elements between a and b for all queries
+# then return the max sum in the array
+def arrayManipulation(n, queries):
+    # found solution
+    A = [0] * (n + 1)
+    max_sum = 0
+    count = 0
+    for first, last, value in queries:
+        A[first-1] += value
+        A[last] -= value
+    
+    for x in A:
+        count += x
+        if count > max_sum:
+            max_sum = count
+    return max_sum
+
+    # my original solution
+    
+    # manipArray = [0] * n
+    # max_sum = 0
+    # for x in range(len(queries)):
+    #     for p in range(queries[x][0]-1, queries[x][1]):
+    #         manipArray[p] += queries[x][2]
+    #         if(manipArray[p] > max_sum):
+    #             max_sum = manipArray[p]
+    # return max_sum
+
+# not working correct cuz indexing list of lists 
+print('array manip function -> ', arrayManipulation(5,[[1,2,100]]))
