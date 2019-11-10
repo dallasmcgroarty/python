@@ -401,3 +401,16 @@ def arrayManipulation(n, queries):
 
 # not working correct cuz indexing list of lists 
 print('array manip function -> ', arrayManipulation(5,[[1,2,100]]))
+
+# return maximum number of toys that can be bought given a list of prices
+# and a max amount to spend
+def maximumToys(prices, k):
+    max_toys = 0
+    prices.sort()
+    for x in prices:
+        if x < k:
+            max_toys += 1
+            k -= x
+    return max_toys
+
+print('Max num toys ==> ', maximumToys([14,2,15,18,25,36,4,6,21], 100))
