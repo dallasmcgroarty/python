@@ -1,4 +1,5 @@
 import sys
+import statistics
 
 def reverse(str):
     reversed = ''
