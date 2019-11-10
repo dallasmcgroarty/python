@@ -63,19 +63,3 @@ print(str_words)
 nums = [1,2,3,4]
 str_nums = ', '.join(str(val) for val in nums)
 print(str_nums)
-
-# given list of expenditures and number or days
-# notifications will sent if number of days is up
-# and the current expenditure is greater of equal to
-# the median of the trailing days * 2 
-# return num of notifications left
-
-# apparently not fast enough for large inputs
-def activityNotifications(expenditure, d):
-    #prev = expenditure[0:d]
-    notifs = 0
-    for i in range(d, len(expenditure)):
-        median = statistics.median(expenditure[i-d:i])
-        if expenditure[i] >= 2 * median:
-            notifs += 1
-    return notifs
