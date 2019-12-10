@@ -147,6 +147,43 @@ def rev_sentence(s):
 #faster/cleaner solution is to do:
 # return ' '.join(reversed(s.split()))
 
-print(rev_sentence('This is the best'))
-print(rev_sentence('Hi John,    are you ready to go?'))
+print('sentence reversal => ', rev_sentence('This is the best'))
+print('sentence reversal => ', rev_sentence('Hi John,    are you ready to go?'))
 
+# string compression, input 'AAABBCCCC' becomes 'A3B2C4'. 
+# case sensitive
+
+def compress(s):
+    letters = {}
+    compressed = ''
+    for x in s:
+        if x in letters:
+            letters[x] += 1
+        else:
+            letters[x] = 1
+    
+    for key, value in letters.items():
+        compressed += key + str(value)
+
+    return compressed
+
+print('string compression => ', compress('AAABBCCCC')) # A3B2C4
+print('string compression => ', compress('AAAaaaCCBB')) # A3a3C2B2
+
+# given a string return true if all characters are unique or false if not
+
+def unique(s):
+    if len(s) == 0:
+        return True
+
+    chars = set()
+    for x in s:
+        if x in chars:
+            return False
+        else:
+            chars.add(x)
+    return True
+
+print('Unique characters => ', unique('')) #true
+print('Unique characters => ', unique('goo')) #false
+print('Unique characters => ', unique('abcdefg')) #true
