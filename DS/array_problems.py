@@ -86,3 +86,67 @@ def missing_element(A,B):
             count[x] -= 1
 
 print('missing element => ', missing_element([5,5,7,7],[5,7,7]))
+
+#given an array of integers(positive or negative) find the largest continuous sum
+def largest_cont_sum(A):
+
+    if len(A) == 0:
+        return 0
+
+    cur_sum = max_sum = A[0]
+
+    for x in A[1:]:
+        cur_sum = max(cur_sum + x, x)
+
+        max_sum = max(cur_sum, max_sum)
+
+    return max_sum
+
+print('Largest continuous Sum => ', largest_cont_sum([1,2,-1,3,4,10,10,-10,-1]))
+
+#reverse a string
+def rev_str(s):
+    # strip whitespace
+    s = s.strip()
+    new_str = ''
+    i = len(s)-1
+    while(i >= 0):
+        new_str += s[i]
+        i -= 1
+    return new_str
+
+print('reversed string => ', rev_str('geeks'))
+
+#reverse a sentence
+# 'This is the best' => 'best the is This'
+def rev_sentence(s):
+    words = []
+    cur_str = ''
+    ret_str = ''
+    # filter the words out
+    for x in s:
+        if x == ' ' and not cur_str:
+            pass
+        elif x == ' ' and cur_str:
+            words.insert(0,cur_str)
+            cur_str = ''
+        elif x == s[len(s)-1] and cur_str:
+            cur_str += x
+            words.insert(0,cur_str)
+        else:
+            cur_str += x
+    
+    # convert words to strings and add to final string
+    # add space after each
+    for x in words:
+        ret_str += str(x)
+        if x != words[len(words)-1]:
+            ret_str += ' '
+    return ret_str
+
+#faster/cleaner solution is to do:
+# return ' '.join(reversed(s.split()))
+
+print(rev_sentence('This is the best'))
+print(rev_sentence('Hi John,    are you ready to go?'))
+
