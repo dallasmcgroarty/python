@@ -431,3 +431,6 @@ def activityNotifications(expenditure, d):
         if expenditure[i] >= 2 * median:
             notifs += 1
     return notifs
+
+strrr = "hdlgg"
+print(list(strrr))
