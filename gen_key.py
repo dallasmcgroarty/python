@@ -1,10 +1,10 @@
 import hashlib
 s_key = 'dkey4h561k'
 
-user = input('Enter username: ')
-user = user.strip()
+addr = input('Enter MAC address: ')
+addr = addr.strip()
 
-to_hash = user + s_key
+to_hash = addr + s_key
 
 m = hashlib.md5(to_hash.encode('utf-8'))
 hash = m.hexdigest()
