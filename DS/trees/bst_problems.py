@@ -25,3 +25,8 @@ def inorder(tree):
 # above solution for problem 1 is correct
 
 # problem 2
+# given a binary tree of integers, print it in level order
+# that is to each level of the tree is on a new line
+# ex:        0
+#         1    2
+#        3 4  5 6
