@@ -51,3 +51,9 @@ class HashTable(object):
                 if pos == start_slot:
                     stop = True
         return data
+    
+    def __getitem__(self, key):
+        return self.get(key)
+    
+    def __setitem__(self, key, data):
+        self.put(key, data)
