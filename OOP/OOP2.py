@@ -24,8 +24,9 @@ print(blue.cool, Animal.cool, Cat.cool)
 # is instance return true if the type is the same else returns false
 print(isinstance(blue, Cat))
 
-#******** Properties
-
+#********** 
+# Properties
+#**********
 class Human:
     def __init__(self, first, last, age):
         self.first = first
@@ -76,4 +77,4 @@ print(jane.age)
 print(jane.full_name)
 jane.full_name = "Tommy Bob"
 print(jane.full_name)
-print(jane.__dict__)
+
