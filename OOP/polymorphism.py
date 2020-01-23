@@ -7,6 +7,23 @@
 # Dog.speak() # woof
 # Human.speak() # yo
 
+# common way to do this is to have a method in a base (or parent) class that
+# is overridden by a subclass. aka. method overriding
+class Animal():
+    def speak(self):
+        raise NotImplementedError("Subclass needs to implement this method")
+class Dog(Animal):
+    def speak(self):
+        return "woof"
+class Cat(Animal):
+    def speak(self):
+        return "meow"
+
+dog = Dog()
+cat = Cat()
+print(dog.speak())
+print(cat.speak())    
+
 # 2. the same operation works for different kinds of objects
 sample_list = [1,2,3]
 sample_tuple = (1,2,3)
