@@ -39,3 +39,14 @@ print(inactive)
 
 t_name = [f"{name} is a cool guy" for name in names if len(name) < 5]
 print(t_name)
+
+# problem1
+# filter out every number that is not divisible by 4 and
+# then return a new list where every number is tripled
+def triple_and_filter(L):
+    fil = filter(lambda n: n % 4 == 0, L)
+    return [n * 3 for n in fil]
+    # or do:
+    # return list(filter(lambda x: x % 4 == 0, map(lambda x: x*3, lst)))
+
+print(triple_and_filter([1,2,3,4]))

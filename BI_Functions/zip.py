@@ -47,3 +47,17 @@ print(final_scores)
 # same thing but getting the average score
 final_avg_grades = {t[0]:(t[1] + t[2])/2 for t in zip(students,midterms,finals)}
 print(final_avg_grades)
+
+# problem 1
+# given two strings, interweave them together and return them
+# back as one string
+# ie. given s1='hey',s2='hoe; return 'hheoye'
+def interleave(s1,s2):
+    z = zip(s1,s2)
+    zl = list(z)
+    j = ["".join(item) for item in zl]
+    return "".join(j)
+    # or do:
+    # return ''.join(''.join(x) for x in (zip(s1,s2)))
+
+print(interleave('hey','hoe'))

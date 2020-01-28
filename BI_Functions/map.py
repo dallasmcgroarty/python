@@ -22,3 +22,13 @@ def decrement_list(L):
     return list(map(lambda num: num-1, L))
 
 print(decrement_list(nums))
+
+# problem 1
+# write a function that accepts a list of dictionaries and
+# returns a new list of strings with the first and last name keys
+# in each dictionary concatenated
+names = [{'first': 'Elie', 'last': 'Schoppik'}, {'first': 'Colt', 'last': 'Steele'}]
+def extract_full_name(LD):
+    return list(map(lambda n: f"{n['first']} {n['last']}", LD))
+
+print(extract_full_name(names))
