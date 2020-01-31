@@ -179,5 +179,45 @@ def anagram(str1,str2):
     return True
 
 print(anagram('rail safety','fairy tales'))
+print()
     
-        
+print('--- Capitalize Strings ---', inspect.getframeinfo(inspect.currentframe()).lineno)
+
+def cap_str(str1):
+    words = str1.split(' ')
+    words = [word[0].upper()+word[1:] for word in words]
+    return " ".join(words)
+
+def cap_str1(str1):
+    result = str1[0].upper()
+    for x in range(1,len(str1)):
+        if str1[x-1] == ' ':
+            result += str1[x].upper()
+        else:
+            result += str1[x]
+    return result
+
+print(cap_str('a lazy fox'))
+print(cap_str1('a lazy fox'))
+print()
+
+print('--- printing steps ---', inspect.getframeinfo(inspect.currentframe()).lineno)
+
+def print_steps(num):
+    l = num
+    for x in range(num+1):
+        print('#' * x + ' ' * l)
+        l-=1
+
+def print_steps1(num):
+    for x in range(0,num):
+        out = ''
+        for j in range(0,num):
+            if j <= x:
+                out += '#'
+            else:
+                out += ' '
+        print(out)
+
+print(print_steps(4))
+print_steps1(4)
