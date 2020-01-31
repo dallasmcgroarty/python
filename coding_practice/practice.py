@@ -64,6 +64,7 @@ print(rev_int(51))
 print(rev_int(0))
 print(rev_int(123))
 print(rev_int1(56))
+print()
 
 print('---Max chars/Highest Frequency---', inspect.getframeinfo(inspect.currentframe()).lineno)
 
@@ -84,6 +85,7 @@ def max_chars(str1):
 
 print(max_chars('abbbbccd'))
 print(max_chars('44552221'))
+print()
 
 print('--- FizzBuzz---', inspect.getframeinfo(inspect.currentframe()).lineno)
 
@@ -99,6 +101,7 @@ def fizz_buzz(num):
             print(x)
 
 print(fizz_buzz(15))
+print()
 
 print('--- array chunking---', inspect.getframeinfo(inspect.currentframe()).lineno)
 
@@ -120,3 +123,61 @@ def arr_chunk(arr, size):
     return out
 
 print(arr_chunk([1,2,3,4],2))
+print()
+
+print('--- Bubble Sort ---', inspect.getframeinfo(inspect.currentframe()).lineno)
+
+def bubble_sort(arr):
+    n = len(arr)
+    for i in range(n):
+        for k in range(0, n-i-1):
+            if arr[k] > arr[k+1]:
+                arr[k+1], arr[k] = arr[k], arr[k+1]
+    return arr
+
+def bubble_sort1(arr):
+    n = len(arr)
+    for i in range(n):
+        for k in range(0, n-i-1):
+            if arr[k] > arr[k+1]:
+                arr[k+1], arr[k] = arr[k], arr[k+1]
+    return arr
+
+# my solution
+def bubble_sort2(arr):
+    for _ in range(len(arr)):
+        for k in range(len(arr)-1):
+            if arr[k] > arr[k+1]:
+                arr[k+1], arr[k] = arr[k], arr[k+1]
+    return arr
+
+print(bubble_sort([1,5,3,8,2,3]))
+print(bubble_sort1([1,5,3,8,2,3]))
+print(bubble_sort2([1,5,3,8,2,3,9,4]))
+
+print('--- Anagrams ---', inspect.getframeinfo(inspect.currentframe()).lineno)
+
+def anagram(str1,str2):
+    str1 = str1.strip(' ')
+    str2 = str2.strip(' ')
+    freq1 = {}
+    freq2 = {}
+    if len(str1) != len(str2):
+        return False
+    for i,j in zip(str1,str2):
+        if i in freq1:
+            freq1[i] += 1
+        else:
+            freq1[i] = 1
+        if j in freq2:
+            freq2[j] += 1
+        else:
+            freq2[j] = 1
+    for x in freq1:
+        if x not in freq2 or freq1[x] != freq2[x]:
+            return False
+    return True
+
+print(anagram('rail safety','fairy tales'))
+    
+        
