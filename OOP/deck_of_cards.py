@@ -22,6 +22,10 @@ class Deck:
     def __repr__(self):
         return f"Deck of {self.count()} cards"
     
+    # addding iterator to deck class in order to iterate through the deck of cards
+    def __iter__(self):
+        return iter(self.cards)
+    
     def _deal(self, num):
         count = self.count()
         actual = min([count, num])
@@ -42,4 +46,10 @@ class Deck:
             raise ValueError("Only full decks can be shuffled")
         shuffle(self.cards)
         return self
-    
+
+my_deck = Deck()
+my_deck.shuffle()
+print(my_deck)
+
+for card in my_deck:
+    print(card)
