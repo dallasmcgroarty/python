@@ -12,8 +12,8 @@ def rev_str(str1):
 
 def rev_str1(str1):
     result = ''
-    for i in range(len(str1),0,-1):
-        result += str1[i-1]
+    for i in range(len(str1)-1,-1,-1):
+        result += str1[i]
     return result
 
 def rev_str2(str1):
