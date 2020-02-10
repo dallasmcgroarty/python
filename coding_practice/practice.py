@@ -221,3 +221,38 @@ def print_steps1(num):
 
 print(print_steps(4))
 print_steps1(4)
+print()
+
+print('--- zeros at back ---')
+# given an array of numbers and zeros, move all the zeros to the back of the array 
+# and all the numbers before the zeros
+# try to do in O(n) time
+
+def zeros_to_back(L):
+    back = []
+    result = []
+    for x in L:
+        if x == 0:
+           back.append(x)
+        else:
+            result.append(x)
+    result.extend(back)
+    return result
+
+print(zeros_to_back([1,0,4,1,0,3,0,5]))
+print()
+print('--- first non repeating char ---')
+# given a string return the first non repeating char in the string
+
+def non_repeating(S):
+    repeat = {}
+    for char in S:
+        if char in repeat:
+            repeat[char] += 1
+        else:
+            repeat[char] = 1
+
+    for i in repeat:
+        if repeat[i] == 1:
+            return i
+print(non_repeating('srtirninsgtgd'))
