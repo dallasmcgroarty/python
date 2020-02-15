@@ -1,0 +1,4 @@
+This is a story file about something cool
+Isn't this story cool!
+Writing to the file
+Using forward slash n to add a new line
