@@ -256,3 +256,32 @@ def non_repeating(S):
         if repeat[i] == 1:
             return i
 print(non_repeating('srtirninsgtgd'))
+print()
+
+print('--- balance brackets ---')
+# given a string of closing parentheses check whether it is balanced
+# 3 types or parenthesis (), [], and {}
+# asssume no other characters nor spaces
+# example-> balanced = '([])' , not balanced = '([)]'
+def balance(S):
+    if len(S) % 2 != 0:
+        return False
+
+    open_b = set('([{')
+    pairs = set([('(',')'), ('[',']'), ('{','}')])
+
+    stack = []
+    
+    for x in S:
+        if x in open_b:
+            stack.append(x)
+        else:
+            if len(stack) == 0:
+                return False
+            opening = stack.pop()
+            if (opening,x) not in pairs:
+                return False
+    return len(stack) == 0
+
+print(balance('[(())}]'))
+print(balance(''))
