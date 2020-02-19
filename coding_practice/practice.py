@@ -285,3 +285,25 @@ def balance(S):
 
 print(balance('[(())}]'))
 print(balance(''))
+print()
+
+print('--- binary search ---')
+# given a list of sorted numbers and a target value create a function that uses 
+# binary search to search if a value is in the list
+
+def binary_search(L, target):
+    if len(L) == 0:
+        return False
+    else:
+        mid = len(L)//2
+        
+        if target == L[mid]:
+            return True
+        elif target < L[mid]:
+            left = L[:mid]
+            return binary_search(left, target)
+        elif target > L[mid]:
+            right = L[mid+1:]
+            return binary_search(right, target)
+
+print(binary_search([1,2,3,4,5], 4))
