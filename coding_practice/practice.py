@@ -307,3 +307,29 @@ def binary_search(L, target):
             return binary_search(right, target)
 
 print(binary_search([1,2,3,4,5], 4))
+print()
+
+print('--- equal sides of array ---')
+# You are going to be given an array of integers. Your job is to take that array
+# and find an index N where the sum of the integers to the left of N is equal to 
+# the sum of the integers to the right of N. If there is no index that would make 
+# this happen, return -1.
+def equal_sides(arr):
+    for i in range(0,len(arr)):
+        left = sum(arr[:i])
+        right = sum(arr[i+1:])
+        if left == right:
+            return i
+    return -1
+
+print(equal_sides([2,3,4]))
+print()
+
+print('--- Alphabet Position ---')
+# given a string of text, return a string where each char in the text 
+# is replaced with its position in the alphabet
+def alphabet_position(text):
+    alphabet = 'abcdefghijklmnopqrstuvwxyz'
+    return ' '.join([str(alphabet.index(char.lower())+1) for char in text if char.lower() in alphabet])
+
+print(alphabet_position("The sunset sets at twelve o' clock."))
