@@ -333,3 +333,33 @@ def alphabet_position(text):
     return ' '.join([str(alphabet.index(char.lower())+1) for char in text if char.lower() in alphabet])
 
 print(alphabet_position("The sunset sets at twelve o' clock."))
+print()
+
+print('--- Duplicates and Non-Dupes ---')
+# return a new string where each character in the new string is '(' 
+# if that character appears only once in the original word, or ')' 
+# if that character appears more than once in the original word. 
+# Ignores capitalization when determining if a character is a duplicate.
+def duplicate_encode(word):
+    freq = {}
+    ret_str = ''
+    for x in word:
+        if x.lower() in freq:
+            freq[x.lower()] += 1
+        else:
+            freq[x.lower()] = 1
+    
+    for x in word:
+        if freq[x.lower()] > 1:
+            ret_str += ')'
+        else:
+            ret_str += '('
+    return ret_str
+
+    #could also use count() which gets the count of that item in the string/array/dict
+    # for char in word:
+    #     if word.count(char) > 1:
+    #         ret_str += ')'
+    #     else:
+    #         ret_str += '('
+    # return ret_str
