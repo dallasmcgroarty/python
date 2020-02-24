@@ -344,13 +344,17 @@ def duplicate_encode(word):
     freq = {}
     ret_str = ''
     for x in word:
-        if x.lower() in freq:
+        if x == ' ':
+            continue
+        elif x.lower() in freq:
             freq[x.lower()] += 1
         else:
             freq[x.lower()] = 1
     
     for x in word:
-        if freq[x.lower()] > 1:
+        if x == ' ':
+            ret_str += ' '
+        elif freq[x.lower()] > 1:
             ret_str += ')'
         else:
             ret_str += '('
@@ -363,3 +367,19 @@ def duplicate_encode(word):
     #     else:
     #         ret_str += '('
     # return ret_str
+print(duplicate_encode('hello there'))
+print()
+
+print('--- Hours, Minutes, Seconds ---')
+# create a functions that takes in a number of seconds and returns it in human readable
+# format that looks like HH:MM:SS, where HH <= 99, MM <= 59, SS <= 59
+def humanTime(s):
+     return '{:02}:{:02}:{:02}'.format(s // 3600, s // 60 % 60, s % 60)
+
+    # or do :
+    # h= seconds/60**2
+    # m= (seconds%60**2)/60
+    # s= (seconds%60**2%60)
+    # return "%02d:%02d:%02d" % (h, m, s)
+print(humanTime(43000))
+print()
