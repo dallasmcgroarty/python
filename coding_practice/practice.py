@@ -383,3 +383,23 @@ def humanTime(s):
     # return "%02d:%02d:%02d" % (h, m, s)
 print(humanTime(43000))
 print()
+
+print('--- Sort the odd ---')
+# create a function that takes in an array and returns a sorted array
+# but only the odds are sorted and evens remain in their place
+# ex) input = [2,9,11,6,8,7], output = [2,7,9,6,8,11]
+def sort_array_odds(source_array):
+    odds = []
+    for i in range(0,len(source_array)):
+        if source_array[i] % 2 == 1:
+            odds.append(source_array[i])
+    odds.sort()
+    index = 0
+    for i in range(0,len(source_array)):
+        if source_array[i] % 2 == 1:
+            source_array[i] = odds[index]
+            index += 1
+    return source_array
+
+print(sort_array_odds([2,9,11,6,8,7]))
+print()
