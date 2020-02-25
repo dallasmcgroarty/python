@@ -403,3 +403,23 @@ def sort_array_odds(source_array):
 
 print(sort_array_odds([2,9,11,6,8,7]))
 print()
+
+print('--- Write Number in Expanded Form ---')
+# create a function that takes a number and write it out in an expanded
+# form like:
+# 12 = '10 + 2', 100 = '100', 70304 = '70000 + 300 + 4'
+def expanded_form(num):
+    expanded = ''
+    num = str(num)[::-1]
+    count = 0
+    while count < len(num):
+        if count == 0 and num[count] is not '0':
+            expanded = num[count]
+        if count >= 1 and num[count] is not '0':
+            expanded = num[count] + '0'*count + ' ' + expanded 
+        count += 1
+    result = expanded.split()
+    result = ' + '.join(num for num in result)
+    return result
+
+print(expanded_form(30643))
