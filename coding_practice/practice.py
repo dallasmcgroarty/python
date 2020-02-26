@@ -423,3 +423,17 @@ def expanded_form(num):
     return result
 
 print(expanded_form(30643))
+print()
+
+print('--- A chain adding function ---')
+# create function that adds numbers together when called in succession
+# add(1)(2) -> returns 3
+# add(1)(2)(3)(4) -> returns 10
+# add(1) -> return 1
+# can also save to variable and call:
+# addTwo = add(2)
+# addTwo + 5 -> 7
+# addTwo(3) -> 5
+class add(int):
+    def __call__(self, value):
+        return add(self+value)
