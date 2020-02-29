@@ -75,6 +75,4 @@ def coin_change(target, coins):
                 min_coins = num_coins
     return min_coins
 
-print(coin_change(40,[1,2,3,4]))
-
-        
+print(coin_change(10,[1,2,3,4]))
