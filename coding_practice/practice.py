@@ -43,7 +43,7 @@ def palindrome1(str1):
     return str1[:len(str1)//2] == str1[len(str1):len(str1)//2-1:-1]
 
 print(palindrome('acd'))
-print(palindrome1('abba'))
+print(palindrome1('aca'))
 print()
 
 print('--- Reverse integer ---', inspect.getframeinfo(inspect.currentframe()).lineno)
@@ -122,7 +122,7 @@ def arr_chunk(arr, size):
     out.append(chunk)
     return out
 
-print(arr_chunk([1,2,3,4],2))
+print(arr_chunk([1,2,3,4],3))
 print()
 
 print('--- Bubble Sort ---', inspect.getframeinfo(inspect.currentframe()).lineno)
@@ -223,7 +223,7 @@ print(print_steps(4))
 print_steps1(4)
 print()
 
-print('--- zeros at back ---')
+print('--- zeros at back ---', inspect.getframeinfo(inspect.currentframe()).lineno)
 # given an array of numbers and zeros, move all the zeros to the back of the array 
 # and all the numbers before the zeros
 # try to do in O(n) time
@@ -241,7 +241,7 @@ def zeros_to_back(L):
 
 print(zeros_to_back([1,0,4,1,0,3,0,5]))
 print()
-print('--- first non repeating char ---')
+print('--- first non repeating char ---', inspect.getframeinfo(inspect.currentframe()).lineno)
 # given a string return the first non repeating char in the string
 
 def non_repeating(S):
@@ -258,7 +258,7 @@ def non_repeating(S):
 print(non_repeating('srtirninsgtgd'))
 print()
 
-print('--- balance brackets ---')
+print('--- balance brackets ---', inspect.getframeinfo(inspect.currentframe()).lineno)
 # given a string of closing parentheses check whether it is balanced
 # 3 types or parenthesis (), [], and {}
 # asssume no other characters nor spaces
@@ -287,7 +287,7 @@ print(balance('[(())}]'))
 print(balance(''))
 print()
 
-print('--- binary search ---')
+print('--- binary search ---', inspect.getframeinfo(inspect.currentframe()).lineno)
 # given a list of sorted numbers and a target value create a function that uses 
 # binary search to search if a value is in the list
 
@@ -309,7 +309,7 @@ def binary_search(L, target):
 print(binary_search([1,2,3,4,5], 4))
 print()
 
-print('--- equal sides of array ---')
+print('--- equal sides of array ---', inspect.getframeinfo(inspect.currentframe()).lineno)
 # You are going to be given an array of integers. Your job is to take that array
 # and find an index N where the sum of the integers to the left of N is equal to 
 # the sum of the integers to the right of N. If there is no index that would make 
@@ -325,7 +325,7 @@ def equal_sides(arr):
 print(equal_sides([2,3,4]))
 print()
 
-print('--- Alphabet Position ---')
+print('--- Alphabet Position ---', inspect.getframeinfo(inspect.currentframe()).lineno)
 # given a string of text, return a string where each char in the text 
 # is replaced with its position in the alphabet
 def alphabet_position(text):
@@ -335,7 +335,7 @@ def alphabet_position(text):
 print(alphabet_position("The sunset sets at twelve o' clock."))
 print()
 
-print('--- Duplicates and Non-Dupes ---')
+print('--- Duplicates and Non-Dupes ---', inspect.getframeinfo(inspect.currentframe()).lineno)
 # return a new string where each character in the new string is '(' 
 # if that character appears only once in the original word, or ')' 
 # if that character appears more than once in the original word. 
@@ -370,7 +370,7 @@ def duplicate_encode(word):
 print(duplicate_encode('hello there'))
 print()
 
-print('--- Hours, Minutes, Seconds ---')
+print('--- Hours, Minutes, Seconds ---', inspect.getframeinfo(inspect.currentframe()).lineno)
 # create a functions that takes in a number of seconds and returns it in human readable
 # format that looks like HH:MM:SS, where HH <= 99, MM <= 59, SS <= 59
 def humanTime(s):
@@ -384,7 +384,7 @@ def humanTime(s):
 print(humanTime(43000))
 print()
 
-print('--- Sort the odd ---')
+print('--- Sort the odd ---', inspect.getframeinfo(inspect.currentframe()).lineno)
 # create a function that takes in an array and returns a sorted array
 # but only the odds are sorted and evens remain in their place
 # ex) input = [2,9,11,6,8,7], output = [2,7,9,6,8,11]
@@ -404,7 +404,7 @@ def sort_array_odds(source_array):
 print(sort_array_odds([2,9,11,6,8,7]))
 print()
 
-print('--- Write Number in Expanded Form ---')
+print('--- Write Number in Expanded Form ---', inspect.getframeinfo(inspect.currentframe()).lineno)
 # create a function that takes a number and write it out in an expanded
 # form like:
 # 12 = '10 + 2', 100 = '100', 70304 = '70000 + 300 + 4'
@@ -425,7 +425,7 @@ def expanded_form(num):
 print(expanded_form(30643))
 print()
 
-print('--- A chain adding function ---')
+print('--- A chain adding function ---', inspect.getframeinfo(inspect.currentframe()).lineno)
 # create function that adds numbers together when called in succession
 # add(1)(2) -> returns 3
 # add(1)(2)(3)(4) -> returns 10
@@ -437,3 +437,19 @@ print('--- A chain adding function ---')
 class add(int):
     def __call__(self, value):
         return add(self+value)
+
+print('--- Split Strings ---', inspect.getframeinfo(inspect.currentframe()).lineno)
+#Complete the solution so that it splits the string into pairs of two characters. 
+# If the string contains an odd number of characters then it should replace the missing 
+# second character of the final pair with an underscore ('_').
+def split_strings(s):
+    pairs = []
+    if len(s) % 2 != 0:
+        s+= '_'
+    for i in range(0, len(s), 2):
+        pairs.append(s[i:i+2])
+    return pairs
+
+print(split_strings('adfffggrhra'))
+
+
