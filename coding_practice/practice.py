@@ -178,6 +178,11 @@ def anagram(str1,str2):
             return False
     return True
 
+def anagram1(str1,str2):
+    return sorted(str1) == sorted(str2)
+
+print(anagram1('yoop','poy'))
+
 print(anagram('rail safety','fairy tales'))
 print()
     
