@@ -76,3 +76,68 @@ def coin_change(target, coins):
     return min_coins
 
 print(coin_change(10,[1,2,3,4]))
+
+def permute1(s):
+    out = []
+
+    if len(s) == 1:
+        out = [s]
+    else:
+        for i, letter in enumerate(s):
+            for perm in permute1(s[:i] + s[i+1:]):
+                out += [letter + perm]
+    return out
+
+def coinChange(target, coins):
+    min_coins = target
+    if target in coins:
+        return 1
+    else:
+        for i in [c for c in coins if c <= target]:
+            num_coins = 1 + coin_change(target-i, coins)
+        
+            if num_coins < min_coins:
+                min_coins = num_coins
+    return min_coins
+
+def permute2(s):
+    out = []
+    if len(s) == 1:
+        out = [s]
+    else:
+        for i, letter in enumerate(s):
+            for perm in permute2(s[:i] + s[i+1:]):
+                out += [letter+perm]
+    return out
+
+def coin_change2(target, coins):
+    min_coins = target
+    if target in coins:
+        return 1
+    else:
+        for i in [c for c in coins if c <= target]:
+            num_coins = 1 + coin_change2(target-i,coins)
+
+            if num_coins < min_coins:
+                min_coins = num_coins
+    return min_coins
+
+def balance1(s):
+    if len(s) % 2 != 0:
+        return False
+    
+    stack = []
+    opens = set('({[')
+    matches = set([('(',')'),('{','}'),('[',']')])
+
+    for x in s:
+        if x in opens:
+            stack.append(x)
+        else:
+            if len(s) == 0:
+                return False
+            
+            last = stack.pop()
+            if (last,x) not in matches:
+                return False
+    return len(s) == 0
