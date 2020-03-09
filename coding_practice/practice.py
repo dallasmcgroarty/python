@@ -467,4 +467,24 @@ def nth_fib(n):
     else:
         return nth_fib(n-1) + nth_fib(n-2)
 
+def exchange_with(a, b):
+    temp = []
+    temp1 = []
+    index = len(a)-1
+    while index >= 0:
+        temp.append(a[index])
+    
+    index = len(b)-1
+    while index >= 0:
+        temp1.append(b[index])
+    
+    for i in range(0, len(temp1)):
+        a[i] = temp1[i]
+    
+    for i in range(0, len(temp)):
+        b[i] = temp[i]
 
+a = [1,2,3]
+b = ['a','b','c']
+exchange_with(a,b)
+print(a,b)
