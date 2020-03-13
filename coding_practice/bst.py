@@ -63,10 +63,12 @@ class BST:
             else:
                 temp = temp.rightChild
     
-    def height(self):
-        pass
-
-
+    def height(self, t):
+        if t is None:
+            return 0
+        else:
+            return 1 + max(self.height(t.leftChild), self.height(t.rightChild))
+        
     def inorder(self,t):
         if t.leftChild:
             self.inorder(t.leftChild)
@@ -87,3 +89,4 @@ print(t.find(1))
 print('min value in tree -> ', t.min())
 print('max value in tree -> ', t.max())
 print('size of tree is -> ', len(t))
+print('height of tree -> ', t.height(t.root))
