@@ -488,3 +488,20 @@ a = [1,2,3]
 b = ['a','b','c']
 exchange_with(a,b)
 print(a,b)
+
+# given a number, multiple each digit together until the product is a single digit
+# if product is not a single digit, multiply that product together, and so on
+# return the number of times needed to reach a single digit
+# ex: input = 39 , 3*9 = 27, 2*7 = 14, 1*4 = 4, return 3
+# because we needed to multiple the digits out 3 times until we reached a single digit
+def persistence(n):
+    # recursive solution
+    count = 0
+    if n <= 9:
+        return count
+    else:
+        nums = str(n)
+        product = int(nums[0])
+        for i in range(1,len(nums)):
+            product *= int(nums[i])
+        return 1 + persistence(product)
