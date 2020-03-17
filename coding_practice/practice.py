@@ -486,7 +486,7 @@ def exchange_with(a, b):
 
 a = [1,2,3]
 b = ['a','b','c']
-exchange_with(a,b)
+#exchange_with(a,b)
 print(a,b)
 
 # given a number, multiple each digit together until the product is a single digit
@@ -505,3 +505,33 @@ def persistence(n):
         for i in range(1,len(nums)):
             product *= int(nums[i])
         return 1 + persistence(product)
+
+# sum of pairs, aka two sum, return values that add to the target sum
+def sum_pairs(ints, s):
+    already_visited = set()
+    for i in ints:
+        difference = s - i
+        if difference in already_visited:
+            return [difference, i]
+        already_visited.add(i)
+    return []
+
+# two sum, return indices that the value and those indices equals the target sum
+def sum_pairs1(ints, s):
+    already_visited = set()
+    for i in ints:
+        difference = s - i
+        if difference in already_visited:
+            return [ints.index(difference), ints.index(i)]
+        already_visited.add(i)
+    return []
+
+print(sum_pairs1([1,3,2,8,4], 7))
+
+# decimal to binary
+def dec_to_bin(n):
+    if n > 0:
+        dec_to_bin(n//2)
+        print(n%2, end="")
+
+dec_to_bin(17)
