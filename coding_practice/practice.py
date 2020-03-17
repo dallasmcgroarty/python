@@ -467,6 +467,7 @@ def nth_fib(n):
     else:
         return nth_fib(n-1) + nth_fib(n-2)
 
+print('--- Exchange List elements ---', inspect.getframeinfo(inspect.currentframe()).lineno)
 def exchange_with(a, b):
     temp = []
     temp1 = []
@@ -489,6 +490,7 @@ b = ['a','b','c']
 #exchange_with(a,b)
 print(a,b)
 
+print('--- Persistence num ---', inspect.getframeinfo(inspect.currentframe()).lineno)
 # given a number, multiple each digit together until the product is a single digit
 # if product is not a single digit, multiply that product together, and so on
 # return the number of times needed to reach a single digit
@@ -506,6 +508,9 @@ def persistence(n):
             product *= int(nums[i])
         return 1 + persistence(product)
 
+print(persistence(39))
+
+print('--- Sum pairs/ Two Sum ---', inspect.getframeinfo(inspect.currentframe()).lineno)
 # sum of pairs, aka two sum, return values that add to the target sum
 def sum_pairs(ints, s):
     already_visited = set()
@@ -528,6 +533,7 @@ def sum_pairs1(ints, s):
 
 print(sum_pairs1([1,3,2,8,4], 7))
 
+print('--- convert decimal to binary ---',inspect.getframeinfo(inspect.currentframe()).lineno)
 # decimal to binary
 def dec_to_bin(n):
     if n > 0:
@@ -535,3 +541,21 @@ def dec_to_bin(n):
         print(n%2, end="")
 
 dec_to_bin(17)
+print()
+
+print('--- GCD/HCF ---', inspect.getframeinfo(inspect.currentframe()).lineno)
+#GCD or HCF (highest common factor/greatest common denominator)
+# using euclidean algo
+def gcd(x,y):
+    while(y):
+        x, y = y, x % y
+    return x
+
+# recursive approach
+def gcd1(a,b):
+    if (b==0):
+        return a
+    else:
+        return gcd1(b, a%b)
+
+print(gcd(60,48))
