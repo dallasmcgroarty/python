@@ -325,3 +325,39 @@ def profit(stock_prices):
 
         max_profit = max(max_profit, compare_profit)
     return max_profit
+
+# price spider interview questions:
+
+# -5 = 1 ->5
+# 2-10 = 2 -> 10
+# 10-
+def func1(item):
+    if item is None:
+        return [1]
+    elif type(item) == int:
+        return [item]
+    elif type(item) == str:
+        if item[0] == '-':
+            out = []
+            for i in range(int(item[1:])):
+                out.append(i)
+            return  out
+        return item.split(',')
+
+# var obj = {foo: {bar:99}};
+# resolve(obj, 'foo') // returns {bar:99}
+# resolve(obj, 'foo.bar') // returns 99var 
+# obj = {a:1,"helb:lo", c:{d:"foo"}}
+
+# resolve(obj, "c.d") -> "foo"
+# resolve(obj, "a") -> 1
+# resolve(obj, "b") -> "hello"
+# resolve(obj, "c") -> {d: "foo"}
+# resolve(obj, "c.d") -> "foo"
+
+def resolve(obj, key):
+    arr_keys = key.split('.')
+    ret_obj = obj
+    for i in arr_keys:
+        ret_obj = ret_obj[i]
+    return ret_obj
