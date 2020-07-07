@@ -47,7 +47,7 @@ print(df.loc['B','Y'])
 # selecting a subset
 print(df.loc[['A','B'],['W','Y']])
 
-## dataframes part 2!
+##******* dataframes part 2!
 
 # can use conditionals with dataframes
 booldf = df > 0
@@ -114,3 +114,38 @@ print(df)
 # create a new row
 # to do it inplace/save it, use inplace=True in the argument
 print(df.set_index('States'))
+
+
+### ******** dataframes part 3
+
+# multi level index dataframes
+
+# index levels
+outside = ['G1','G1','G1','G2','G2','G2']
+inside = [1,2,3,1,2,3]
+hier_index = list(zip(outside,inside))
+hier_index = pd.MultiIndex.from_tuples(hier_index)
+
+print(hier_index)
+
+# multi-level index dataframe with 6 rows, 2 columns
+df = pd.DataFrame(randn(6,2),hier_index,['A','B'])
+print(df)
+
+# calling data from this 
+print(df.loc['G1'])
+print(df.loc['G1'].loc[1])
+
+# call outside first and go inward
+
+# set index names
+df.index.names = ['Groups','Num']
+print(df)
+
+# get value in G2, num 2, column b
+print(df.loc['G2'].loc[2,'B'])
+
+# another way, grabbing cross sections
+print(df.xs('G1'))
+
+print(df.xs(1,level='Num'))
