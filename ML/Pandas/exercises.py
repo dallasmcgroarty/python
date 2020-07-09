@@ -65,3 +65,62 @@ print() # 627
 sal['title_len'] = sal['JobTitle'].apply(len)
 print('correlation between length of job title and salary ->\n', sal[['title_len','TotalPayBenefits']].corr())
 # no correlation
+
+# ECOMMERCE Purchases exercises!***
+
+# load csv file into df
+ecom = pd.read_csv('Pandas/Ecommerce_Purchases')
+print(ecom.head())
+print()
+
+# what is the average purchase price?
+print('avg purchase price ->', ecom['Purchase Price'].mean())
+print()
+
+# how many rows and columns are there?
+print(ecom.info()) # 10000 rows, 14 columns
+print()
+
+# what were the highest and lowest purchase prices?
+print('highest price ->', ecom['Purchase Price'].max())
+print('lowest price ->', ecom['Purchase Price'].min())
+print()
+
+# How many people have English 'en' as their Language of choice on the website?
+print('number of "en" language users ->', ecom[ecom['Language']=='en']['Language'].value_counts())
+print() # 1098
+# can also use -> ecom[ecom['Language']=='en'].count()
+
+# how many people have the job title of lawyer?
+print('how many lawyers ->', ecom[ecom['Job']=='Lawyer']['Job'].value_counts())
+print() #30
+# can also do ecom[ecom['Job'] == 'Lawyer'].info()
+
+# How many people made the purchase during the AM and how many people made the purchase during PM ?
+print('number of AM purchases ->\n', ecom['AM or PM'].value_counts())
+print()
+
+# 5 most common job titles?
+print('most common job titles ->\n', ecom['Job'].value_counts().head(5))
+print()
+
+# Someone made a purchase that came from Lot: \"90 WT\" , 
+# what was the Purchase Price for this transaction?
+print('Lot 90WT purchase price ->\n', ecom[ecom['Lot']=='90 WT']['Purchase Price'])
+print()
+
+# What is the email of the person with the following Credit Card Number: 4926535242672853?
+print('Email of CC number ->\n', ecom[ecom['Credit Card']==4926535242672853]['Email'])
+print()
+
+# How many people have American Express as their Credit Card Provider *and* made a purchase above $95
+print('american express and over $95 ->\n', ecom[(ecom['CC Provider']=='American Express') & (ecom['Purchase Price'] > 95)].count())
+print() # 39
+
+# Hard: How many people have a credit card that expires in 2025?
+# cc exp date is 03/25 format, so slice using lambda
+print('CC expires in 2025 ->', sum(ecom['CC Exp Date'].apply(lambda x:x[3:])=='25'))
+print() # 1033
+
+#Hard: What are the top 5 most popular email providers/hosts (e.g. gmail.com, yahoo.com, etc...)
+print('Most popular email providers ->\n', ecom['Email'].apply(lambda x: x.split('@')[1]).value_counts().head())
