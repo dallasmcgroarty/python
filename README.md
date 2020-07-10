@@ -1,11 +1,13 @@
 # python
 
-learning me some python
+learning me some python!
 
-Took a python course on Udemy and continuing to practice python for most coding problems/interview practice
+All my python studying and learning is recorded here for me to see my own progression, but also to show employers what I've learned (in case they care to look!).
 
-Currently taking a course on Django development
+Took a Python Bootcamp course on Udemy, as well as a Data Structures and Algorithms course with Python.
 
-Will be taking a machine learning course with Python as Data Science/Ai/Machine Learning really interests me
+Currently working with a course on Django development, but that's in a seperate repository
 
-Also, I am thinking of taking a course on Flask as well. Django is great so far, but I've heard some cool things about Flask that really interest me. Just learning more is what I'm really after, so the more Python libraries, frameworks, etc... the better!
+Currently taking a Machine Learning and Data Science course with Python.
+
+
