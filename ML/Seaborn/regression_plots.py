@@ -15,3 +15,4 @@ sns.lmplot(x='total_bill',y='tip',data=tips,hue='sex',markers=['o','v'],
 sns.lmplot(x='total_bill',y='tip',data=tips,col='day',hue='sex',
             aspect=0.6,size=8)
 plt.show()
+
