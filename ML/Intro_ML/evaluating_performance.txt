@@ -1,0 +1,69 @@
+Model Evaluation Notes
+
+key classification metrics:
+    accuracy
+    recall
+    precision
+    F1-score
+
+Models can only be two results 
+    Correct 
+    Incorrect
+
+example attempt to predict if an image is a dog or a cat
+    first fit/train a model on training data
+    then test the model on testing data
+    once we have model predictions from x_test data
+    compare to the true y labels(the correct labels)
+
+Key realization when testing data is that in the real world
+not all incorrect or correct matches hold equal value
+
+A single metric wont tell the complete story
+
+Accuracy
+    number of correct predictions made by the model divided by the total number
+    of predictions
+    - useful when target classes are well balanced
+
+Recall
+    ability of a model to find all the relevant cases within a dataset
+    number of true positives divided by 
+    number of true positives + number of false negatives
+
+Precision
+    ability of a classification model to identify only the relevant data points
+    number of true positives divided by 
+    number of true positives + number of false positives
+
+Often a tradeoff between recall and precision
+
+Recall expresses the ability to find all relevant instances in a dataset
+Precision expresses the proportion of the data points our model says was
+    relevant actually were relevant
+
+F1-Score
+    combination of precision and recall
+    harmonic mean of precision and recall
+
+F1 = 2 * ( (precision * recall) / (precision + recall) )
+
+We use harmonic mean because it punishes extreme values
+
+Confusion Matrix
+    view all correctly classified vs incorrectly classified
+
+                                    _______________predicted condition___________
+              |  Total population   | Prediction positive | prediciton negative |
+              |_____________________|_____________________|_____________________|
+              | condition positive  | True positive       | False negative      |
+true          |____________________ |_____________________|_____________________|
+condition     | condition negative  | False Positive      | True negative       |
+              |_____________________|_____________________|_____________________| 
+
+Just a way to compare true values and predicted values
+
+Often need to decide if the model should fix false positives vs false negatives
+
+Machine learning is a collaborative process where we should consult
+    with experts in the domain
