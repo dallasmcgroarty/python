@@ -67,3 +67,39 @@ Often need to decide if the model should fix false positives vs false negatives
 
 Machine learning is a collaborative process where we should consult
     with experts in the domain
+
+
+ ** Evaluating Regression **
+
+ need metrics designed for continuous values
+
+
+Most common evaluation metrics for Regression:
+    Mean Absolute Error
+    Mean Squared Error
+    Root Mean Square Error
+
+Mean Absolute Error(MAE):
+    - the mean of the absolute value of errors
+    - easy to understand
+    - differences between your prediction vs the true label,
+        take absolute value and average it for all predictions
+    - wont punish large errors
+
+Mean Squared Error (MSE):
+    - mean of the squared error
+    - larger errors are noted more than with MAE,
+        making MSE more popular
+
+Root Mean Square Error (RMSE):
+    - this is the root of the mean of the squared errors
+    - most popular (has same units as y)
+
+Context is everything 
+- RMSE of $10 is good for predicting price of a house, but
+    bad for predicting price of a candy bar
+
+Compare your error metric to the average value of the label
+    in your data set
+
+Domain knowledge also plays an important role
