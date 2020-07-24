@@ -1,0 +1,18 @@
+Logistic Regression **
+
+Logistic Regression as a method for Classification
+
+Logistic Regression allows us to solve Classification problems,
+    where we are trying to predict discrete categories
+
+Normal linear regression models on binary groups wont be a good fit
+
+Sigmoid Function for logistics
+    - any value inputted will always output a value between 0 and 1
+
+So, we can take a linear regression solution and place it into 
+    the Sigmoid Function.
+    Creating a logistic model
+
+Use confusion matrix to evaluate our model
+
