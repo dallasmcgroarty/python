@@ -1,0 +1,27 @@
+** K Nearest Neighbors Theory **
+
+K Nearest Neighbors is a classification algorithm
+
+Training algorithm:
+    1. Store all data
+
+Prediction algorithm:
+    1. Calculate the distance from x to all points in your data
+    2. Sort the points in your data by increasing distance from x
+    3. Predict the majority label of the "k" closest points
+
+Choosing a K will affect what class a new point is assigned to
+
+Pros:
+    - very simple
+    - training is trivial
+    - works with any number of classes
+    - easy to add more data
+    - few parameters
+        - K
+        - Distance Metric
+
+Cons:
+    - high prediction cost (worse for large data sets)
+    - not good with high dimensional data
+    - categorical features dont work well
