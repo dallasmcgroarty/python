@@ -559,3 +559,18 @@ def gcd1(a,b):
         return gcd1(b, a%b)
 
 print(gcd(60,48))
+
+print('--- Moving totals ---', inspect.getframeinfo(inspect.currentframe()).lineno)
+# moving totals
+# function should determine if a sum of 3 consecutive numbers
+# is in the list of numbers
+def movingTotals(numbers,total):
+    result = set()
+    for i in range(len(numbers)):
+        result.add(sum(numbers[i:i+3]))
+    if total in result:
+        return True
+    else:
+        return False
+
+print(movingTotals([1,3,4,5,4,8,7,3,4,2,1],7))
