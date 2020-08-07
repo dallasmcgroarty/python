@@ -574,3 +574,52 @@ def movingTotals(numbers,total):
         return False
 
 print(movingTotals([1,3,4,5,4,8,7,3,4,2,1],7))
+
+print('--- Human readable ---', inspect.getframeinfo(inspect.currentframe()).lineno)
+# create a functions that takes in a number of seconds and returns it in human readable
+# format that looks like HH:MM:SS, where HH <= 99, MM <= 59, SS <= 59
+def make_readable(seconds):
+    hours = seconds//3600
+    minutes = (seconds%3600)//60
+    sec = seconds%60
+    return "{:02}:{:02}:{:02}".format(hours,minutes,sec)
+
+print(make_readable(26492))
+
+print('--- max sum contiguos subarray ---', inspect.getframeinfo(inspect.currentframe()).lineno)
+# if array is empty or all elements are negatie return 0
+# return the max sum contigous subarray
+def maxSequence(arr):
+    if not arr:
+        return 0
+    
+    negatives = 0
+    if arr[0] < 0:
+        negatives += 1
+        
+    current_max = arr[0]
+    final_max = arr[0]
+    
+    for i in range(1,len(arr)):
+        if arr[i] < 0:
+            negatives += 1
+        current_max = max(arr[i], current_max + arr[i])
+        final_max = max(current_max, final_max)
+    if negatives == len(arr):
+        return 0
+    return final_max
+
+print('--- move zeros to back ---', inspect.getframeinfo(inspect.currentframe()).lineno)
+# move all zeros in the list to the back while keeping the order of the 
+# non-zeros the same
+# the list also has strings and boolens to handle, specifically false
+def zeros_back(arr):
+    back = []
+    result = []
+    for num in arr:
+        if type(num) == bool or num != 0:
+            result.append(num)
+        else:
+            back.append(0)
+    result.extend(back)
+    return result
