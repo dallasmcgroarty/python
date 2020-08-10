@@ -1,0 +1,38 @@
+K Means Clustering **
+
+K Means Clustering is an unsupervised learning algorithm that will
+    attempt to group similar clusters together in your data
+
+Typical clustering problems:
+    - cluster similar documents
+    - cluster customers based on features
+    - market segmentation
+    - identify similar physical groups
+
+Overall goal is to divide data into distinct groups such that
+    observations within each group are similar
+
+How it works:
+    - choose number of clusters 'K'
+    - randomly assign each point to a cluster
+    - until clusters stop changing, repeat the following:
+        - for each cluster, compute the cluster centroid by taking
+            the mean vector of points in the cluster
+        - assign each data point to the cluster for which the centroid
+            is the closest
+
+No easy answer for choosing a best K value
+
+One way is to use the elbow method:
+
+    -First compute the sum of squared error (SSE) for some values of K
+
+    -The SSE defined as the sum of the squared distance between each
+        member of the cluster and its centroid
+
+    -If you plot k against the SSE, you will see that the error decreases
+        as k gets larger; this is because when the number of clusters
+        increases, they should be smaller, so distortion is also smaller
+
+    -The idea of the elbow method is to choose the k at which the 
+        SSE decreases abruptly 
