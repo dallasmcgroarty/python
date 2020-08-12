@@ -1,0 +1,17 @@
+Recommender Systems **
+
+two most common types:
+- Content-Bases:
+    system focuses on the attributes of the items and gives you recommendations
+    based on the similarity between them
+- Collaborative Filtering:
+    produces recommendations based on the knowledge of users' attitude
+    to items, that is it uses the "wisdom of the crowd" to recommend
+    items
+
+Collaborative filtering is more commonly used. Can do feature learning
+    on its own.
+
+Two types of CF:
+- Memory-Based Collaborative Filtering
+- Model-Based Collaborative Filtering
