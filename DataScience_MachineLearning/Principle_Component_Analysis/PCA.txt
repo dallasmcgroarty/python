@@ -1,0 +1,17 @@
+PCA ** 
+
+unsupervised statistical technique used to examine the interrelations
+    among a set of variables in order to identify the underlying
+    structure of those variables
+
+also known as a general factor analysis
+
+factor analysis determines several orthogonal lines of best fit
+    to the data set
+
+orthogonal means "at right angles"
+ - perpendicular to each other in n dimensional space
+
+most challenging part is interpreting the components
+
+
