@@ -623,3 +623,21 @@ def zeros_back(arr):
             back.append(0)
     result.extend(back)
     return result
+
+print('--- no sign multiply ---', inspect.getframeinfo(inspect.currentframe()).lineno)
+# multiply two integers without using the multiplication or divison sign
+def no_sign_multiply(a,b):
+    result = 0
+    for _ in range(0,b):
+        result += a
+    return result
+
+print(no_sign_multiply(4,3))
+
+print('--- get remainder ---', inspect.getframeinfo(inspect.currentframe()).lineno)
+# get remainder of two numbers without using divison or modulo
+def remainder(a,b):
+    while a - b > 0:
+        a = a - b
+    return a
+print(remainder(10,4))
