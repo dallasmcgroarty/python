@@ -641,3 +641,40 @@ def remainder(a,b):
         a = a - b
     return a
 print(remainder(10,4))
+print()
+
+print('--- palindrome given int ---', inspect.getframeinfo(inspect.currentframe()).lineno)
+# palindrome checker given integer
+def pal(x):
+    num = []
+    num = str(x)
+    index = len(num)-1
+    reverse = ''
+    while index >= 0:
+        reverse += num[index]
+        index -= 1
+    return num == reverse
+print(pal(1221))
+print()
+print('--- roman numeral to integer ---', inspect.getframeinfo(inspect.currentframe()).lineno)
+# roman numeral to integer
+def romanToInt(s):
+    result = 0
+    romans = {'I':1, 'V':5, 'X':10, 'L':50, 'C':100,'D':500,'M':1000, 
+            'IV':4, 'IX':9, 'XL':40, 'XC':90, 'CD':400, 'CM':900}
+    i = 0
+    group = ''
+    while i < len(s):
+        if i != len(s)-1:
+            group = s[i] + s[i+1]
+        if group in romans:
+            result += romans[group]
+            group = ''
+            i += 2
+        else:
+            result += romans[s[i]]
+            i += 1
+    return result
+
+print(romanToInt('MCXCV'))
+print()
