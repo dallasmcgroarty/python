@@ -678,3 +678,24 @@ def romanToInt(s):
 
 print(romanToInt('MCXCV'))
 print()
+
+print('--- longest common prefix ---', inspect.getframeinfo(inspect.currentframe()).lineno)
+# longest common prefix
+# find longest common prefix amongst an array of strings
+# if none in common return ""
+def longestCommonPrefix(strs):
+    common = ''
+    if len(strs) == 0:
+        return ''
+    for i in range(len(strs[0])):
+        print(i)
+        for j in range(1,len(strs)):
+            if i == len(strs[j]):
+                return common
+            if strs[0][i] != strs[j][i]:
+                return common
+        common += strs[0][i]
+    return common
+
+print(longestCommonPrefix(['flower','flowing','flowy','flowski']))
+print()
