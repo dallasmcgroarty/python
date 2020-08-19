@@ -65,6 +65,27 @@ new_list = merge_list(list1,list2)
 
 print('merged lists --> ', new_list)
 
+# merge list practice again
+def merge_list2(l1,l2):
+    left = right = 0
+    result = []
+
+    while left < len(l1) and right < len(l2):
+        if l1[left] <= l2[right]:
+            result.append(l1[left])
+            left += 1
+        else:
+            result.append(l2[right])
+            right += 1
+    if left == len(l1):
+        while right < len(l2):
+            result.append(l2[right])
+            right += 1
+    else:
+        result.append(l1[left])
+        left += 1
+    return result
+
 # return first missing positive integer in a list/array
 def firstMissingPositive(A):
         A.sort()
