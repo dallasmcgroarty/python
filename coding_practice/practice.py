@@ -688,7 +688,6 @@ def longestCommonPrefix(strs):
     if len(strs) == 0:
         return ''
     for i in range(len(strs[0])):
-        print(i)
         for j in range(1,len(strs)):
             if i == len(strs[j]):
                 return common
@@ -698,4 +697,51 @@ def longestCommonPrefix(strs):
     return common
 
 print(longestCommonPrefix(['flower','flowing','flowy','flowski']))
+print()
+
+print('--- merge sorted list and return a listnode ---', inspect.getframeinfo(inspect.currentframe()).lineno)
+# Definition for singly-linked list.
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+
+def addNode(val, L):
+    temp = L
+    while temp.next:
+        temp = temp.next
+    temp.next = ListNode(val)
+
+# merge two sorted lists and return a sorted list in form
+# of a listnode
+def mergeTwoLists(self, l1: ListNode, l2: ListNode) -> ListNode:
+    flag = 1
+    sorted_list = ListNode()
+    while l1 != None and l2 != None:
+        if l1.val <= l2.val:
+            if flag == 0:
+                sorted_list = ListNode(l1.val)
+                flag = 1
+                l1 = l1.next
+            else:
+                addNode(l1.val, sorted_list)
+                l1 = l1.next
+        else:
+            if flag == 0:
+                sorted_list = ListNode(l2.val)
+                flag = 1
+                l2 = l2.next
+            else:
+                addNode(l2.val, sorted_list)
+                l2 = l2.next
+    if l1 == None:
+        while l2 != None:
+            addNode(l2.val, sorted_list)
+            l2 = l2.next
+    else:
+        while l1 != None:
+            addNode(l1.val, sorted_list)
+            l1 = l1.next
+    return sorted_list.next
+
 print()
