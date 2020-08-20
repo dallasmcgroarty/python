@@ -807,3 +807,13 @@ def searchInsert(nums, target):
                 insert = i + 1
         i += 1
     return insert
+
+print()
+
+print('--- plus one to list num ---', inspect.getframeinfo(inspect.currentframe()).lineno)
+# function takes in a list of numbers representing an integer
+# return the number + 1 as a list
+def plusOne(digits):
+    number = ''.join([str(digit) for digit in digits])
+    number = int(number) + 1
+    return [int(num) for num in str(number)]
