@@ -745,3 +745,65 @@ def mergeTwoLists(self, l1: ListNode, l2: ListNode) -> ListNode:
     return sorted_list.next
 
 print()
+
+print('--- remove duplicates ---', inspect.getframeinfo(inspect.currentframe()).lineno)
+# remove duplicates from sorted array
+# do it in-place 
+def removeDuplicates(nums):
+    if len(nums) == 0:
+        return 0
+    
+    prev = nums[0]
+    i = 1
+    while i < len(nums):
+        if prev == nums[i]:
+            nums.pop(i)
+        else:
+            prev = nums[i]
+            i += 1
+print()
+
+print('--- remove elements ---', inspect.getframeinfo(inspect.currentframe()).lineno)
+# remove all values in list equal to the value passed in to function
+def removeElement(nums, val):
+    i = 0
+    while i < len(nums):
+        if nums[i] == val:
+            nums.pop(i)
+        else:
+            i += 1
+
+print()
+
+print('--- substring function ---', inspect.getframeinfo(inspect.currentframe()).lineno)
+# implement substring function
+# given a string and a substring, return the index of the first occurrence
+# of the substring in the string, if the sub string exists
+def strStr(haystack, needle):
+    if len(needle) == 0:
+        return 0
+    length = len(needle)
+    i = 0
+    while i < len(haystack):
+        if haystack[i:i+length] == needle:
+            return i
+        i += 1
+    return -1
+
+print('--- search or insert function ---', inspect.getframeinfo(inspect.currentframe()).lineno)
+# Given a sorted array and a target value, return the index if the target 
+# is found. If not, return the index where it would be if it were inserted in order.
+# no duplicates in array
+def searchInsert(nums, target):
+    insert = 0
+    i = 0
+    while i < len(nums):
+        if target > nums[len(nums)-1]:
+            return len(nums)
+        if nums[i] == target:
+            return i
+        else:
+            if nums[i] < target and nums[i+1] > target:
+                insert = i + 1
+        i += 1
+    return insert
