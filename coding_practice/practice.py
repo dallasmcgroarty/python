@@ -817,3 +817,17 @@ def plusOne(digits):
     number = ''.join([str(digit) for digit in digits])
     number = int(number) + 1
     return [int(num) for num in str(number)]
+
+print()
+
+print('--- remove dupes in list ---', inspect.getframeinfo(inspect.currentframe()).lineno)
+# remove duplicates in sorted list
+def deleteDuplicates(head):
+    temp = head
+    while temp and temp.next:
+        if temp.val == temp.next.val:
+            temp.next = temp.next.next
+        else:
+            temp = temp.next
+    return head
+print()

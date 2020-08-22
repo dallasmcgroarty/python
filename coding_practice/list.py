@@ -26,6 +26,19 @@ class List(Node):
             self.head = Node(value)
             self.head.next = temp
 
+    def deleteNode(self, value):
+        if value == self.head.value:
+            self.head = self.head.next
+            return
+        prev = self.head
+        next = self.head.next
+        while prev and next:
+            if next.value == value:
+                prev.next = next.next
+                return
+            prev = prev.next
+            next = next.next
+
     def __len__(self):
         return self.length
 
@@ -56,6 +69,7 @@ L.addBack(5)
 L.addBack(6)
 L.addFront(1)
 L.addFront(0)
+L.deleteNode(5)
 # a = Node(1)
 # b = Node(2)
 # L.head = a
