@@ -609,6 +609,8 @@ def maxSequence(arr):
         return 0
     return final_max
 
+print(maxSequence([1,5,3,-1,2,4,-2,4]))
+print()
 print('--- move zeros to back ---', inspect.getframeinfo(inspect.currentframe()).lineno)
 # move all zeros in the list to the back while keeping the order of the 
 # non-zeros the same
@@ -831,3 +833,78 @@ def deleteDuplicates(head):
             temp = temp.next
     return head
 print()
+
+print('--- max sum subarray ---', inspect.getframeinfo(inspect.currentframe()).lineno)
+# find the contiguous subarray which has the largest sum
+# and return its sum
+def maxSubArray(self, nums):
+    if not nums:
+        return 0
+
+    current_max = nums[0]
+    final_max = nums[0]
+    
+    for i in range(1, len(nums)):
+        current_max = max(nums[i], current_max + nums[i])
+        final_max = max(current_max, final_max)
+    return final_max
+print()
+
+print('--- length of last word in string ---', inspect.getframeinfo(inspect.currentframe()).lineno)
+# Given a string s consists of upper/lower-case alphabets 
+# and empty space characters ' ', return the length of last word 
+# (last word means the last appearing word if we loop 
+# from left to right) in the string.
+# If the last word does not exist, return 0.
+def lengthOfLastWord(self, s):
+    words = s.strip(' ').split(' ')
+    print(words)
+    if not words:
+        return 0
+    return len(words[-1])
+print()
+
+print('--- merge sorted arrays again ---', inspect.getframeinfo(inspect.currentframe()).lineno)
+# Given two sorted integer arrays nums1 and nums2, 
+# merge nums2 into nums1 as one sorted array.
+
+# The number of elements initialized in nums1 and nums2 are m and n respectively
+def merge(self, nums1, m, nums2, n):
+    """
+    Do not return anything, modify nums1 in-place instead.
+    """
+    if not nums2:
+        return nums1
+    
+    left = 0
+    right = 0
+    
+    while len(nums1) > m:
+        nums1.pop()
+        
+    while left < len(nums1) and right < len(nums2):
+        if nums2[right] < nums1[left]:
+            nums1.insert(left, nums2[right])
+            right += 1
+        left += 1
+
+    if left >= m:
+        while right < len(nums2):
+            nums1.insert(left, nums2[right])
+            left += 1
+            right += 1
+print()
+
+print('--- majority element ---', inspect.getframeinfo(inspect.currentframe()).lineno)
+# return most frequent element that appears in the majority
+# of the list
+def majorityElement(self, nums):
+    result = dict()
+    for i in nums:
+        if i in result:
+            result[i] += 1
+        else:
+            result[i] = 1
+    for num in result:
+        if result[num] > len(nums) // 2:
+            return num
