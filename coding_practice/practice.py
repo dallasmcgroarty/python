@@ -908,3 +908,59 @@ def majorityElement(self, nums):
     for num in result:
         if result[num] > len(nums) // 2:
             return num
+
+def sumofpairs(nums, s):
+    seen = set()
+    for i in nums:
+        diff = s - i
+        if diff in seen:
+            return [diff, i]
+        seen.add(i)
+    return []
+
+print(sumofpairs([1,4,3,2,5,6], 7))
+print()
+
+print('--- sorted array to BST ---', inspect.getframeinfo(inspect.currentframe()).lineno)
+# given array where elements are sorted in ascending order, conver it to 
+# a height balanced BST
+# Definition for a binary tree node.
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+def sortedArrayToBST(nums):
+    def buildBST(left, right):
+        if left > right:
+            return None
+        
+        mid = (left + right) // 2
+        
+        newNode = TreeNode(nums[mid])
+        newNode.left = buildBST(left, mid-1)
+        newNode.right = buildBST(mid+1, right)
+        return newNode
+    return buildBST(0, len(nums)-1)
+
+print()
+
+print('--- Check for cycle in linked list ---', inspect.getframeinfo(inspect.currentframe()).lineno)
+# determing if there is a cycle in the linked list
+# linked list node is:
+# class ListNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+def hasCycle(self, head):
+    seen = set()
+    temp = head
+    while temp:
+        if temp in seen:
+            return True
+        seen.add(temp)
+        temp = temp.next
+    return False
+    
+print()
