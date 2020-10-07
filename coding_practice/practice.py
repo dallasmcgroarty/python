@@ -977,3 +977,27 @@ print(names)
 
 names = list(map(lambda item: item['name'], segments))
 print(names)
+
+# buy and sell stocks to maximize profit
+def buy_sell(prices):
+    if len(prices) == 1:
+        return 0
+    cur_profit = 0
+    max_profit = 0
+    start = 0
+    end = 1
+    while start < len(prices) - 1 and end < len(prices):
+        if prices[end] > prices[start]:
+            if cur_profit < prices[end] - prices[start]:
+                cur_profit = prices[end] - prices[start]
+            end += 1
+        elif prices[end] < prices[start]:
+            max_profit += cur_profit
+            cur_profit = 0
+            start = end
+            end = start + 1
+        if end == len(prices):
+            max_profit += cur_profit
+    return max_profit
+
+print(buy_sell([100,180,260,310,40,535,695]))
