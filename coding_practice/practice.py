@@ -964,3 +964,16 @@ def hasCycle(self, head):
     return False
     
 print()
+
+# list of dicts to list of names
+segments = [{'name': 'Wallstreet', 'average_spend': 82.01}, {'name': 'Gambler', 'average_spend': 107.00}, {'name': 'Parents', 'average_spend': 10.52}]
+names = [x['name'] for x in segments]
+print(names)
+
+names = []
+for item in segments:
+    names.append(item['name'])
+print(names)
+
+names = list(map(lambda item: item['name'], segments))
+print(names)
