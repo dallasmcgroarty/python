@@ -965,6 +965,7 @@ def hasCycle(self, head):
     
 print()
 
+print('--- list of dicts to list of names ---', inspect.getframeinfo(inspect.currentframe()).lineno)
 # list of dicts to list of names
 segments = [{'name': 'Wallstreet', 'average_spend': 82.01}, {'name': 'Gambler', 'average_spend': 107.00}, {'name': 'Parents', 'average_spend': 10.52}]
 names = [x['name'] for x in segments]
@@ -973,11 +974,13 @@ print(names)
 names = []
 for item in segments:
     names.append(item['name'])
-print(names)
+#print(names)
 
 names = list(map(lambda item: item['name'], segments))
-print(names)
+#print(names)
+print()
 
+print('--- buy/sell stocks to max profit ---', inspect.getframeinfo(inspect.currentframe()).lineno)
 # buy and sell stocks to maximize profit
 def buy_sell(prices):
     if len(prices) == 1:
@@ -1001,3 +1004,28 @@ def buy_sell(prices):
     return max_profit
 
 print(buy_sell([100,180,260,310,40,535,695]))
+print()
+
+print('--- two sum, return index ---', inspect.getframeinfo(inspect.currentframe()).lineno)
+# given array of numbers in sorted ascending order, and target number
+# return index of first two elements that sum to the target
+# return as list
+def twoSum(numbers, target):
+    #visited = set()
+    #for num in numbers:
+        #if target - num in visited:
+        #    if numbers.index(target-num)+1 == numbers.index(num)+1:
+        #         return [numbers.index(target-num)+1, numbers.index(num)+2]
+        #      return [numbers.index(target-num)+1, numbers.index(num)+1]
+        #   visited.add(num)
+    #return []
+    left = 0
+    right = len(numbers) - 1
+    while left < right:
+        total = numbers[left] + numbers[right]
+        if total > target:
+            right -= 1
+        elif total < target:
+            left += 1
+        else:
+            return [left+1,right+1]
