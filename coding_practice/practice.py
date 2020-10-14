@@ -1011,7 +1011,7 @@ print('--- two sum, return index ---', inspect.getframeinfo(inspect.currentframe
 # return index of first two elements that sum to the target
 # return as list
 def twoSum(numbers, target):
-    #visited = set()
+    #visited = set() 
     #for num in numbers:
         #if target - num in visited:
         #    if numbers.index(target-num)+1 == numbers.index(num)+1:
@@ -1029,3 +1029,68 @@ def twoSum(numbers, target):
             left += 1
         else:
             return [left+1,right+1]
+print()
+
+print('--- date to days ---', inspect.getframeinfo(inspect.currentframe()).lineno)
+# given date as -> MM/DD/YY format
+# return the day number of year
+def day_in_year(date):
+    # using month number as index, element as days in that month
+    months = [31,28,31,30,31,30,31,31,30,31,30,31]
+
+    date_split = date.split('/')
+    days = int(date_split[1])
+    month = int(date_split[0]) - 1
+
+    sum_days = 0
+    i = 0
+    while i < month:
+        sum_days += months[i]
+        i += 1
+    sum_days += days
+    return sum_days
+
+print(day_in_year('05/11/2020'))
+print()
+
+print('--- days to date ---', inspect.getframeinfo(inspect.currentframe()).lineno)
+# given day of year as number
+# return month and day
+def day_to_date(days):
+    if days > 365 or days < 1:
+        return 0
+
+    month_days = [31,28,31,30,31,30,31,31,30,31,30,31]
+
+    months = ['January','February','March','April','May','June','July',
+            'August','September','October','November','December']
+
+    month = 0
+    i = 0
+    while True:
+        if days - month_days[i] < 0:
+            break
+        elif days - month_days[i] == 0:
+            days = month_days[month]
+            break
+        else:
+            days -= month_days[i]
+            i += 1
+            month = i
+    print(months[month] + ', ' + str(days))
+    
+
+day_to_date(46)
+# def fizzb(num):
+#     for x in range(1,num+1):
+#         if x % 3 == 0 and x % 5 == 0:
+#             print('fizz buzz')
+#         elif x % 3 == 0:
+#             print('fizz')
+#         elif x % 5 == 0:
+#             print('buzz')
+#         else:
+#             print(x)
+
+# fizzb(16)
+
