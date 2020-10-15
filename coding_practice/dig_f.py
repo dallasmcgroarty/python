@@ -193,7 +193,7 @@ L.addFront(0)
 L.printList()
 
 print(L.cycle_check())
-
+print()
 #################################
 # BST data structure
 print('---- Python BST ----')
@@ -273,4 +273,7 @@ print(B.find(4))
 
 print(B.min())
 
+print()
 
+# user = input('Say something: ')
+# print(type(user))
